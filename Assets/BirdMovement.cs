@@ -7,6 +7,7 @@ public class BirdMovement : MonoBehaviour {
     public Vector3 gravity;
     public Vector3 flapVelocity;
     public float maxSpeed;
+    public float forwardSpeed;
 
     bool didFlap = false;
 
@@ -28,6 +29,7 @@ public class BirdMovement : MonoBehaviour {
 	
     // do physics engine updates here
 	void FixedUpdate () {
+        velocity.x = forwardSpeed;
         //since this function will be called 50 times per second, we want to update the position  and velocity each 1/50s by the position changed in 1/50s instead of very second
         //thus we update the position and velocity with velocity*Time.deltaTime instead of just velocity
         //if we update the position and velocity with just velocity each 1/50s, the position will be updated by that velocity and velocity will be updated by that gravity in each 1/50s
