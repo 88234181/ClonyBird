@@ -11,9 +11,7 @@ public class BGLooper : MonoBehaviour {
 
         float widthOfBGObject = ((BoxCollider2D)collider).size.x;
         Vector3 pos = collider.transform.position;
-        pos.x += widthOfBGObject * numBGPanels; //repositioning the background panel
-        Debug.Log("current x: " + collider.transform.position.x + " next x: " + pos.x + " width: "+ widthOfBGObject);
+        pos.x += widthOfBGObject*numBGPanels - 0.5f; //repositioning the background panel
         collider.transform.position = pos; //assign the new position
-        Debug.Log("after reposition : " + collider.transform.position.x);
     }
 }
