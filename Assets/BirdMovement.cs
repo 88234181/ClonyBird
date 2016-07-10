@@ -28,7 +28,7 @@ public class BirdMovement : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             didFlap = true;
-            animator.SetTrigger("DoFlap");
+            
         }
     }
 	
@@ -42,12 +42,14 @@ public class BirdMovement : MonoBehaviour {
 
         Rigidbody2D rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.AddForce(Vector2.right * forwardSpeed);
+
         if (didFlap)
         {
             rigidbody2D.AddForce(Vector2.up * flapSpeed);
-            
+            animator.SetTrigger("DoFlap");
             didFlap = false;
         }
+
         float angle = 0;
         if(rigidbody2D.velocity.y < 0)
         {
